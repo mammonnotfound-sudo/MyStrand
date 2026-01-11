@@ -1,0 +1,224 @@
+/* ==========================================================================
+   MyStrand - Gallery Page Stylesheet (Definitive Final Version)
+   ========================================================================== */
+
+/* --- General & Layout Styles --- */
+body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    background-color: #0a1949;
+    color: #E6E6E6;
+    transition: background-color 0.3s;
+}
+body.dark {
+    background-color: #050E1A;
+}
+
+.gallery-container {
+    padding: 2em;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    padding-bottom: 1.5em;
+    margin-bottom: 1.5em;
+    border-bottom: 1px solid #192965;
+}
+header h1 {
+    color: #FFFFFF;
+    margin: 0 0 0.5em 0;
+    font-size: 2.8em;
+}
+.back-main-btn {
+    display: inline-block;
+    background-color: #fff;
+    color: #0a1949;
+    padding: 0.8em 1.5em;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    border: 1px solid #fff;
+}
+.back-main-btn:hover {
+    background-color: transparent;
+    color: #fff;
+}
+
+/* --- Toolbar & Album Navigation --- */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-bottom: 2em;
+}
+.album-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8em;
+}
+/* FIX: Provides a modern, consistent design for ALL buttons */
+.album-btn, .toolbar-btn {
+    padding: 0.7em 1.5em;
+    border: 1px solid #192965;
+    background-color: transparent;
+    color: #A8B2D1;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1em;
+    font-weight: 600;
+}
+.album-btn.active, .album-btn:hover, .toolbar-btn:hover {
+    background-color: #fff;
+    color: #0a1949;
+    border-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+.toolbar-btn i {
+    margin-right: 0.5em;
+}
+
+/* --- Gallery Grid --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5em;
+}
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    cursor: pointer;
+    background-color: #102060;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #192965;
+    aspect-ratio: 4 / 3; /* Ensures all grid items are the same shape */
+}
+.gallery-item:hover, .gallery-item:focus-within {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+.gallery-item .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(10, 25, 73, 0.95), transparent);
+    color: #E6E6E6;
+    padding: 2.5em 1.5em 1.5em 1.5em;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    font-size: 1.1em;
+    font-weight: 600;
+    opacity: 0;
+}
+.gallery-item:hover .caption {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* --- Modal Styles --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(10, 25, 73, 0.85);
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.3s ease;
+    overflow: auto;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* FIX: This block uses modern CSS to perfectly center the picture and "zoom it out" to fit */
+.modal-content {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90vw;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* This ensures the image fits without being cropped */
+    border-radius: 12px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+    animation: zoomIn 0.3s ease;
+}
+@keyframes zoomIn { from { transform: translate(-50%, -50%) scale(0.95); } to { transform: translate(-50%, -50%) scale(1); } }
+
+#modal-caption {
+    text-align: center;
+    color: #FFFFFF;
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+}
+.close {
+    position: fixed; /* Fixed to viewport corner */
+    top: 20px;
+    right: 35px;
+    color: #A8B2D1;
+    font-size: 3em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+    z-index: 1001;
+}
+.close:hover, .close:focus { color: #FFFFFF; transform: rotate(90deg); }
+
+/* FIX: Modern design for modal navigation buttons */
+.prev, .next {
+    cursor: pointer;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #FFFFFF;
+    font-size: 2em;
+    transition: all 0.3s ease;
+    background-color: rgba(10, 25, 73, 0.7);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #192965;
+    user-select: none;
+    z-index: 1001;
+    text-decoration: none;
+    border-radius: 50%;
+}
+.prev { left: 2em; }
+.next { right: 2em; }
+.prev:hover, .next:hover { background-color: #fff; color: #0a1949; }
+
+@media (max-width: 768px) {
+    .toolbar { flex-direction: column; align-items: center; }
+    .prev, .next { width: 45px; height: 45px; font-size: 1.5em; }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+}

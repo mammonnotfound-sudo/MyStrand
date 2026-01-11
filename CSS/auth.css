@@ -1,0 +1,113 @@
+/* ==========================================================================
+   MyStrand - "Glassmorphism" Auth Stylesheet (Final, Single-Column Fix)
+   ========================================================================== */
+
+/* --- General Styles & Background --- */
+*, *::before, *::after { box-sizing: border-box; }
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #E6E6E6;
+}
+
+body {
+    background-image: linear-gradient(rgba(10, 25, 73, 0.8), rgba(10, 25, 73, 0.9)), url('../pictures/campus-background.jpg'); /* CHANGE 'campus-background.jpg' to your image! */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* This allows the page to scroll if the form is long */
+    overflow-y: auto; 
+    padding: 2em;
+}
+
+/* --- Main Auth Container (The "Glass") --- */
+.auth-container {
+    width: 100%;
+    /* MODIFIED: A consistent, focused width for all auth forms */
+    max-width: 500px; 
+    margin: 2em auto; /* Center the container with space */
+    padding: 2.5em;
+    background: rgba(16, 32, 96, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+/* --- Header --- */
+.auth-header { text-align: center; margin-bottom: 2em; }
+.auth-header h1 { margin: 0 0 0.2em 0; font-size: 2.2em; color: #fff; }
+.auth-header p { margin: 0; font-size: 1.1em; color: #A8B2D1; }
+
+/* --- Form Elements --- */
+/* REMOVED: The problematic .form-grid class is no longer needed */
+.form-group { margin-bottom: 1.5em; }
+.input-group { position: relative; margin-bottom: 1.5em; }
+.input-group i {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #A8B2D1;
+    transition: color 0.2s;
+}
+input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="password"] {
+    width: 100%;
+    padding: 1em 1em 1em 3em; /* Padding for icon */
+    background: rgba(10, 25, 73, 0.7);
+    border: 1px solid #192965;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1em;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+input::placeholder { color: #A8B2D1; }
+input:focus {
+    outline: none;
+    border-color: #E0E0E0;
+    box-shadow: 0 0 0 3px rgba(224, 224, 224, 0.2);
+}
+input:focus + i {
+    color: #E0E0E0;
+}
+.gender-options { display: flex; gap: 1.5em; align-items: center; padding-top: 0.5em; }
+.gender-options label, .terms label { margin: 0; cursor: pointer; color: #A8B2D1; }
+.terms { display: flex; align-items: center; justify-content: center; gap: 0.5em; }
+input[type="checkbox"], input[type="radio"] { accent-color: #E0E0E0; transform: scale(1.2); }
+.form-options { text-align: right; margin: -1em 0 1.5em 0; }
+a { color: #E0E0E0; text-decoration: none; font-weight: 600; }
+a:hover { text-decoration: underline; }
+
+/* --- Buttons & Messages --- */
+.auth-btn {
+    width: 100%; padding: 1em; background-color: #E0E0E0; color: #0a1949;
+    border: none; border-radius: 8px; font-size: 1.1em; font-weight: bold;
+    cursor: pointer; transition: all 0.2s ease;
+}
+.auth-btn:hover {
+    background-color: #fff; transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(224, 224, 224, 0.2);
+}
+.error-message, .result-message {
+    padding: 1em; margin-bottom: 1.5em; border-radius: 8px;
+    text-align: center; font-weight: 500; display: none;
+}
+.error-message { background-color: rgba(220, 53, 69, 0.2); border: 1px solid #dc3545; color: #ff8fa2; }
+.result-message { background-color: rgba(40, 167, 69, 0.2); border: 1px solid #28a745; color: #7ee29a; }
+
+/* --- Footer --- */
+.auth-footer { text-align: center; margin-top: 2em; padding-top: 1.5em; border-top: 1px solid rgba(255, 255, 255, 0.2); }
+.auth-footer p { color: #A8B2D1; }
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+    body { padding: 0; }
+    .auth-container {
+        margin: 0;
+        border-radius: 0;
+        min-height: 100vh;
+        border: none;
+    }
+}

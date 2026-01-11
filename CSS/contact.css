@@ -1,0 +1,113 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #001f4d;
+  min-height: 100vh;
+}
+
+.background-blur {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: linear-gradient(135deg, #001f4d 60%, #003366 100%);
+  filter: blur(16px) brightness(0.9);
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  background: rgba(10, 24, 55, 0.92);
+  max-width: 420px;
+  margin: 50px auto;
+  padding: 36px 28px;
+  border-radius: 16px;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.21);
+  color: #fff;
+}
+
+h2 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #b1bde9;
+  margin-bottom: 18px;
+  font-size: 1.05em;
+}
+
+form label {
+  display: block;
+  margin: 13px 0 6px;
+  color: #c7d6f7;
+  font-weight: 500;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 9px;
+  border-radius: 5px;
+  border: 1px solid #355d9a;
+  font-size: 1em;
+  margin-bottom: 9px;
+  background: rgba(255,255,255,0.09);
+  color: #fff;
+  outline: none;
+  transition: border 0.2s;
+  resize: vertical;
+}
+
+form input:focus, form textarea:focus {
+  border: 1.5px solid #4872b7;
+}
+
+form button {
+  width: 100%;
+  padding: 12px;
+  background: #001f4d;
+  color: #fff;
+  font-size: 1.08em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 14px;
+  transition: background 0.2s;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+
+form button:hover {
+  background: #003366;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: #9cbfff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1em;
+  background: rgba(0, 31, 77, 0.13);
+  padding: 6px 14px;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.back-link:hover {
+  background: #355d9a;
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer {
+  text-align: center;
+  color: #b1bde9;
+  font-size: 0.97em;
+  margin-top: 20px;
+}

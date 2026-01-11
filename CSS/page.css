@@ -1,0 +1,96 @@
+/* ==========================================================================
+   MyStrand - General Content Page Stylesheet (Contact, Inbox)
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+body, html { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #0a1949; color: #E6E6E6; }
+
+.page-container {
+    max-width: 800px; margin: 2em auto; padding: 2.5em;
+    background: rgba(10, 25, 73, 0.85); backdrop-filter: blur(15px);
+    border: 1px solid #192965; border-radius: 16px;
+    position: relative;
+}
+
+.back-to-main-btn {
+    position: absolute; top: 1.5em; left: 2.5em; color: #A8B2D1;
+    text-decoration: none; font-weight: 600; padding: 0.5em 1em;
+    border-radius: 8px; transition: all 0.2s ease;
+}
+.back-to-main-btn:hover { background-color: rgba(255, 255, 255, 0.1); color: #fff; }
+
+.page-header { text-align: center; margin-bottom: 2em; }
+.page-header h1 { margin: 0.5em 0 0.2em 0; font-size: 2.5em; color: #fff; }
+.page-header p { margin: 0; font-size: 1.1em; color: #A8B2D1; }
+
+/* Form Styles */
+.form-group { margin-bottom: 1.5em; }
+label { display: block; margin-bottom: 0.5em; color: #c7d6f7; font-weight: 500; }
+input, textarea {
+    width: 100%; padding: 0.9em; background: #0a1949;
+    border: 1px solid #192965; border-radius: 8px; color: #fff; font-size: 1em;
+}
+input:focus, textarea:focus { outline: none; border-color: #E0E0E0; }
+input[readonly] { background-color: #102060; cursor: not-allowed; }
+textarea { resize: vertical; min-height: 120px; }
+.action-btn {
+    width: 100%; padding: 1em; background-color: #E0E0E0; color: #0a1949;
+    border: none; border-radius: 8px; font-size: 1.1em; font-weight: bold;
+    cursor: pointer; transition: background-color 0.2s;
+}
+.action-btn:hover { background-color: #fff; }
+
+/* Inbox Styles */
+.message-thread {
+    background: #102060; border-radius: 12px;
+    margin-bottom: 1.5em; padding: 1.5em;
+}
+.message-thread h3 { margin-top: 0; }
+.message-bubble {
+    padding: 1em; border-radius: 8px;
+    margin-bottom: 1em;
+}
+.message-bubble strong { display: block; margin-bottom: 0.5em; }
+.message-bubble p { margin: 0; }
+.message-bubble .timestamp {
+    display: block; text-align: right;
+    font-size: 0.8em; color: #A8B2D1; margin-top: 0.8em;
+}
+.message-bubble.user { background: rgba(255, 255, 255, 0.05); }
+.message-bubble.admin { background: rgba(0, 123, 255, 0.15); border-left: 3px solid #007bff; }
+.placeholder-text { text-align: center; font-size: 1.1em; color: #A8B2D1; }
+
+.page-header {
+    position: relative;
+    padding-bottom: 1.5em; /* Add some padding at the bottom */
+}
+
+.clear-btn {
+    position: absolute;
+    bottom: 1.5em; /* Align with the bottom padding */
+    right: 0;
+    background: none;
+    border: 1px solid #992c3a;
+    color: #ff8fa2;
+    padding: 0.6em 1.2em;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.clear-btn:hover {
+    background-color: #992c3a;
+    color: #fff;
+}
+
+.reply-form {
+    margin-top: 1.5em;
+    padding-top: 1.5em;
+    border-top: 1px solid #192965;
+}
+
+.reply-form textarea {
+    width: 100%;
+    min-height: 80px;
+    margin-bottom: 1em;
+}
