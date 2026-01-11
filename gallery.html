@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery | MyStrand</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="CSS/gallery.css">
+    <link rel="icon" href="favicon-32x32.png" type="image/png">
+</head>
+<body>
+    <div class="gallery-container">
+        <header>
+            <h1>Our Gallery</h1>
+            <a href="user.html" class="back-main-btn"><i class="fas fa-arrow-left"></i> Back to Main Site</a>
+        </header>
+
+        <div class="toolbar">
+            <div id="album-nav" class="album-nav">
+                </div>
+            <div class="action-buttons">
+                <button id="shuffleBtn" class="toolbar-btn"><i class="fas fa-random"></i> Shuffle</button>
+                <button id="darkBtn" class="toolbar-btn"><i class="fas fa-moon"></i> Dark Mode</button>
+            </div>
+        </div>
+
+        <div id="gallery" class="gallery-grid">
+            </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <span class="close" title="Close">&times;</span>
+        <a class="prev" title="Previous">&#10094;</a>
+        <a class="next" title="Next">&#10095;</a>
+        <img class="modal-content" id="modal-img">
+        <div id="modal-caption"></div>
+    </div>
+
+    <script src="Script/gallery.js"></script>
+</body>
+</html>

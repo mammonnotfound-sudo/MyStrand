@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MyStrand Enrollment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="icon" href="favicon-32x32.png" type="image/png">
+  
+  <style>
+    /* --- ENROLLMENT CSS --- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      min-height: 100%;
+      margin: 0;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #0a1949;
+      color: #E6E6E6;
+    }
+
+    .background-effects {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      background: radial-gradient(circle at 10% 20%, rgba(0, 123, 255, 0.15), transparent 40%),
+                  radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.08), transparent 40%);
+    }
+
+    /* --- Main Form Container --- */
+    .form-container {
+      max-width: 700px;
+      margin: 2em auto;
+      padding: 2.5em;
+      background: rgba(10, 25, 73, 0.85);
+      backdrop-filter: blur(15px);
+      border: 1px solid #192965;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .back-link {
+      position: absolute;
+      top: 1.5em;
+      left: 2.5em;
+      color: #A8B2D1;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5em 1em;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    .back-link:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    /* --- Header --- */
+    .form-header {
+      text-align: center;
+      border-bottom: 1px solid #192965;
+      padding-bottom: 1.5em;
+      margin-bottom: 2em;
+    }
+    .form-header h1 {
+      margin: 0.5em 0 0.2em 0;
+      font-size: 2.2em;
+      color: #fff;
+    }
+    .form-header p {
+      margin: 0;
+      font-size: 1.1em;
+      color: #A8B2D1;
+    }
+
+    /* --- Form Elements --- */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5em;
+    }
+    .form-group {
+      margin-bottom: 1.5em;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5em;
+      color: #c7d6f7;
+      font-weight: 500;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.8em;
+      background: #0a1949;
+      border: 1px solid #192965;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1em;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #2600ff;
+      box-shadow: 0 0 0 3px rgba(25, 0, 255, 0.2);
+    }
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    small {
+      display: block;
+      margin-top: 0.5em;
+      color: #A8B2D1;
+      font-size: 0.9em;
+    }
+
+    /* --- File Input --- */
+    input[type="file"] {
+      font-size: 0.9em;
+      color: #A8B2D1;
+    }
+    input[type="file"]::file-selector-button {
+      background: #192965;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 0.8em 1.2em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      margin-right: 1em;
+    }
+    input[type="file"]::file-selector-button:hover {
+      background: #102060;
+    }
+
+    /* --- Submit Button --- */
+    .submit-btn {
+      width: 100%;
+      padding: 1em;
+      background-color: #102060;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 1em;
+      transition: all 0.2s ease;
+    }
+    .submit-btn:hover {
+      background-color: #fff;
+      color: #102060;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
+    }
+    .submit-btn i {
+      margin-right: 0.5em;
+    }
+
+    /* --- Success Overlay --- */
+    .success-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(10, 25, 73, 0.85);
+      backdrop-filter: blur(10px);
+      z-index: 2000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .success-overlay.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .success-box {
+      text-align: center;
+      color: #fff;
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+    }
+    .success-overlay.visible .success-box {
+      transform: scale(1);
+    }
+    .success-box .fa-check-circle {
+      font-size: 5em;
+      color: #28a745;
+      margin-bottom: 0.5em;
+    }
+    .success-box h2 {
+      font-size: 2em;
+      margin: 0 0 0.5em 0;
+    }
+    .success-box p {
+      font-size: 1.1em;
+      color: #A8B2D1;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 600px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .form-container {
+        margin: 1em;
+        padding: 1.5em;
+      }
+      .back-link {
+        position: static;
+        display: inline-block;
+        margin-bottom: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="background-effects"></div>
+  
+  <div class="form-container">
+    <a href="user.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Main Site</a>
+    
+    <header class="form-header">
+      <h1>Enrollment Application</h1>
+      <p>Fill out the form below to begin your journey with us.</p>
+    </header>
+    
+    <form id="enrollment-form" autocomplete="off">
+      
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" name="fullname" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="contact">Contact Number</label>
+          <input type="tel" id="contact" name="contact" required>
+        </div>
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="number" id="age" name="age" min="15" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="school">Previous School</label>
+        <input type="text" id="school" name="school" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="strand">Select Strand</label>
+        <select id="strand" name="strand" required>
+          <option value="" disabled selected>-- Choose your desired strand --</option>
+          <option value="STEM">STEM - Science, Technology, Engineering, and Mathematics</option>
+          <option value="ABM">ABM - Accountancy, Business, and Management</option>
+          <option value="HUMSS">HUMSS - Humanities and Social Sciences</option>
+          <option value="TVL">TVL - Technical-Vocational-Livelihood</option>
+          <option value="PBM">PBM - Pre-Baccalaureate Maritime</option>
+          <option value="SMAW">SMAW - Shield Manufacturing and Welding</option>
+        </select>
+      </div>
+
+      <div id="tvl-specialization-section" class="form-group" style="display:none;">
+        <label for="tvl-specialization">TVL Specialization</label>
+        <select id="tvl-specialization" name="tvl_specialization">
+          <option value="">-- Select specialization --</option>
+          <option value="ICT">Information & Communications Technology (ICT)</option>
+          <option value="Cookery">Cookery & Culinary</option>
+          <option value="Aquaculture">Aquaculture</option>
+          <option value="Processing">Processing</option>
+          <option value="Garments">Garments</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="documents">Upload Required Documents (e.g., Birth Certificate, Form 138)</label>
+        <input type="file" id="documents" name="documents" accept=".pdf,.jpg,.jpeg,.png" required>
+        <small>Accepted formats: PDF, JPG, PNG. Max size: 5MB.</small>
+      </div>
+      
+      <div class="form-group">
+        <label for="choice-message">Why did you choose this strand? (Optional)</label>
+        <textarea id="choice-message" name="choice_message" rows="3"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">
+        <i class="fas fa-paper-plane"></i> Submit Application
+      </button>
+    </form>
+  </div>
+
+  <div id="success-overlay" class="success-overlay">
+    <div class="success-box">
+      <i class="fas fa-check-circle"></i>
+      <h2>Submission Received!</h2>
+      <p>Thank you for enrolling. We will contact you shortly.</p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('enrollment-form');
+        const strandSelect = document.getElementById('strand');
+        const tvlSection = document.getElementById('tvl-specialization-section');
+        const successOverlay = document.getElementById('success-overlay');
+
+        // Show TVL specialization dropdown only when TVL is selected
+        strandSelect.addEventListener('change', function() {
+            tvlSection.style.display = this.value === 'TVL' ? 'block' : 'none';
+        });
+
+        // Handle the form submission
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop the form from submitting the old way
+
+            // 1. Get existing enrollments from localStorage or create an empty array
+            const enrollments = JSON.parse(localStorage.getItem('enrollments')) || [];
+
+            // 2. Create an object with the new submission data
+            const formData = new FormData(form);
+            const newSubmission = {};
+            for (let [key, value] of formData.entries()) {
+                // For file inputs, we just store the name for this simulation
+                // This allows the Admin Panel to "fake" a preview based on extension
+                if (value instanceof File) {
+                    newSubmission[key] = value.name;
+                } else {
+                    newSubmission[key] = value;
+                }
+            }
+            
+            // Add a unique ID and a timestamp
+            newSubmission.id = Date.now();
+            newSubmission.timestamp = new Date().toLocaleString();
+
+            // 3. Add the new submission to the array
+            enrollments.push(newSubmission);
+
+            // 4. Save the updated array back to localStorage
+            localStorage.setItem('enrollments', JSON.stringify(enrollments));
+
+            // 5. Show the success message and redirect
+            successOverlay.classList.add('visible');
+
+            setTimeout(() => {
+                // For the demo, we just reload or go back to user page
+                // In a real multi-page site, you'd go to thank-you.html
+                window.location.href = 'user.html'; 
+            }, 2000); 
+        });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log In | MyStrand</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="CSS/auth.css">
+    <link rel="icon" href="favicon-32x32.png" type="image/png">
+</head>
+<body>
+    <div class="background-effects"></div>
+    <div class="auth-container">
+        <header class="auth-header">
+            <h1>Welcome Back!</h1>
+            <p>Log in to continue to MyStrand.</p>
+        </header>
+
+        <form id="login-form">
+            <div id="error-message" class="error-message"></div>
+
+            <div class="form-group">
+                <label for="username"><i class="fas fa-user"></i> Username</label>
+                <input type="text" id="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password"><i class="fas fa-lock"></i> Password</label>
+                <input type="password" id="password" required>
+            </div>
+
+            <div class="form-options">
+                <a href="forgot.html">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="auth-btn">Log In</button>
+        </form>
+
+        <footer class="auth-footer">
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </footer>
+    </div>
+    <script src="Script/auth.js"></script>
+</body>
+</html>

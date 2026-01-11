@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyStrand</title>
+  <link rel="stylesheet" href="CSS/user.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="icon" href="favicon-32x32.png" type="image/png">
+</head>
+<body>
+
+<header class="top-header">
+    <div class="header-left">
+        <img src="pictures/photo_2025-09-08_22-14-27.png" alt="School Logo" class="header-logo">
+        <div class="header-titles">
+            <span class="header-main-title">MyStrand</span>
+            <span id="navbarUser"></span>
+        </div>
+    </div>
+    <div class="header-right">
+        <div class="language-switcher">
+            <i class="fas fa-globe"></i>
+            <div id="google_translate_element"></div>
+        </div>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation menu">
+        <i class="fas fa-bars"></i>
+    </button>
+</header>
+
+<nav id="sidebar-nav">
+    <div class="sidebar-header">
+        <span class="nav-title">Menu</span>
+        <button class="close-btn" id="close-btn" aria-label="Close navigation menu">&times;</button>
+    </div>
+    <div class="nav-links">
+        <a href="user.html">Home</a>
+        <a href="#strand">Strands</a>
+        <a href="#info">Information</a>
+        <a href="#event">Event Timeline</a>
+        <a href="#about">About</a>
+        <a href="chat.html">Chat</a>
+        <a href="profile.html">Profile</a>
+        <a href="main.html" id="logoutLink">Log Out</a>
+    </div>
+</nav>
+
+<section class="intro-section-full" id="intro">
+  <div class="intro-images-full">
+    
+    <!-- NEW: Navigation Buttons -->
+    <button class="slide-nav-btn prev" id="slide-prev" aria-label="Previous Slide">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="slide-nav-btn next" id="slide-next" aria-label="Next Slide">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
+    <!-- ADDED ID: id="main-slideshow" -->
+    <div class="slideshow-wrapper" id="main-slideshow">
+      <img src="pictures/1.jpg" alt="MAIN">
+      <img src="pictures/2.jpg" alt="ICT">
+      <img src="pictures/3.jpg" alt="SMAW">
+      <img src="pictures/4.jpg" alt="PRINCIPAL">
+    </div>
+
+  </div>
+
+  <div class="intro-text-below">
+    <h1>Welcome to the MyStrand Website !</h1>
+    <p>
+      Your one-stop platform for exploring and selecting the perfect academic strand for your future! Stay updated with school events, view memorable moments in our gallery, and reach out via our contact page. Whether you’re interested in STEM, ABM, HUMSS, TVL, PBM or the SMAW, we have resources and guidance to help you make the best choice.
+    </p>
+  </div>
+</section>
+
+<section class="strands-section" id="strand">
+    <h2>Our Academic Strands</h2>
+    <p class="section-subtitle">Click on any strand to explore its specializations.</p>
+    <div class="strand-list">
+      <div class="strand-card" data-strand="STEM">
+        <h3>STEM</h3>
+        <p>Passionate about innovation, problem-solving, and making a difference through science and technology.</p>
+      </div>
+      <div class="strand-card" data-strand="ABM">
+        <h3>ABM</h3>
+        <p>For future entrepreneurs, business leaders, and financial experts who want to excel in the world of commerce.</p>
+      </div>
+      <div class="strand-card" data-strand="HUMSS">
+        <h3>HUMSS</h3>
+        <p>Focuses on society, culture, and human behavior—ideal for aspiring educators, psychologists, and communicators.</p>
+      </div>
+      <div class="strand-card" data-strand="TVL">
+        <h3>TVL</h3>
+        <p>Offers practical skills and hands-on training, preparing students for immediate employment or further studies.</p>
+      </div>
+      <div class="strand-card" data-strand="PBM">
+        <h3>PBM</h3>
+        <p>Designed for students aspiring to pursue maritime education and careers at sea, preparing them for baccalaureate programs.</p>
+      </div>
+      <div class="strand-card" data-strand="SMAW">
+        <h3>SMAW</h3>
+        <p>Focuses on shield manufacturing and welding, providing students with practical skills in metal fabrication and construction.</p>
+      </div>
+    </div>
+</section>
+
+<section class="page-content-wrapper">
+    <aside class="online-services">
+    <div class="icon-grid">
+      <a href="gallery.html" class="icon-button">
+        <i class="fa-solid fa-building-columns"></i>
+        <span>Gallery</span>
+      </a>
+      <a href="enroll.html" class="icon-button">
+        <i class="fa-solid fa-id-card"></i>
+        <span>Enroll Now</span>
+      </a>
+      <a href="inbox.html" class="icon-button">
+        <i class="fa-solid fa-file-lines"></i>
+        <span>My Inbox</span>
+      </a>
+      <a href="contact.html" class="icon-button">
+        <i class="fa-solid fa-paper-plane"></i>
+        <span>Contact Us</span>
+      </a>
+      <a href="elibrary.html" class="icon-button">
+        <i class="fa-solid fa-book-open-reader"></i>
+        <span>E-Library</span>
+      </a>
+      <a href="quiz.html" class="icon-button">
+        <i class="fa-solid fa-person-chalkboard"></i>
+        <span>Quiz</span>
+      </a>
+      <a href="#intro" class="icon-button" id="backtoBtn">
+        <i class="fa-solid fa-home"></i>
+        <span>Back to Main Page</span>
+      </a>
+    </div>
+  </aside>
+</section>
+
+
+<section class="strand-details" id="info">
+    <h2>Explore Each Strand</h2>
+    <div class="strand-detail reverse">
+    <img src="pictures/stem.jpg" alt="STEM Strand">
+    <div class="strand-info">
+      <h3>STEM (Science, Technology, Engineering, and Mathematics)</h3>
+      <p>
+        Our STEM strand offers state-of-the-art laboratories, robotics workshops, and advanced math courses. Students participate in science fairs, coding bootcamps, and engineering projects that prepare them for technical fields.
+      </p>
+      <ul>
+        <li>Modern science laboratories</li>
+        <li>Robotics and coding classes</li>
+        <li>Math Olympiad training</li>
+        <li>Research immersion programs</li>
+      </ul>
+    </div>
+  </div>
+    <div class="strand-detail">
+    <img src="pictures/abm.jpg" alt="ABM Strand">
+    <div class="strand-info">
+      <h3>ABM (Accountancy, Business, and Management)</h3>
+      <p>
+        The ABM strand provides hands-on business simulations, accounting software training, and entrepreneurship seminars. Students manage real projects and take part in business competitions.
+      </p>
+      <ul>
+        <li>Business plan competitions</li>
+        <li>Accounting and finance workshops</li>
+        <li>Entrepreneurship mentoring</li>
+        <li>Industry internships</li>
+      </ul>
+    </div>
+  </div>
+    <div class="strand-detail reverse">
+    <img src="pictures/humss.jpg" alt="HUMSS Strand">
+    <div class="strand-info">
+      <h3>HUMSS (Humanities and Social Sciences)</h3>
+      <p>
+        HUMSS students enjoy debate clubs, creative writing workshops, and immersion in community development projects. We nurture leaders, communicators, and advocates for social change.
+      </p>
+      <ul>
+        <li>Debate and journalism clubs</li>
+        <li>Community service programs</li>
+        <li>Psychology and sociology classes</li>
+        <li>Creative writing workshops</li>
+      </ul>
+    </div>
+  </div>
+    <div class="strand-detail">
+    <img src="pictures/tvl.jpg" alt="TVL Strand">
+    <div class="strand-info">
+      <h3>TVL (Technical-Vocational-Livelihood)</h3>
+      <p>
+        TVL provides hands-on training in technical fields such as cookery, electrical installation, and information technology. Graduates are ready for employment or further specialization.
+      </p>
+      <ul>
+        <li>NCII certification courses</li>
+        <li>Kitchen and workshop facilities</li>
+        <li>IT and computer servicing</li>
+        <li>Aquaculture and Processing</li>
+      </ul>
+    </div>
+  </div>
+    <div class="strand-detail reverse">
+    <img src="pictures/pbm.jpg" alt="PBM Strand">
+    <div class="strand-info">
+      <h3>PBM (Pre-Baccalaureate Maritime)</h3>
+      <p>
+        Our PBM strand prepares students for maritime careers with courses in navigation, seamanship, and safety. Experience ship bridge simulators and field trips to maritime institutions.
+      </p>
+      <ul>
+        <li>Ship bridge simulator training</li>
+        <li>Maritime safety and navigation</li>
+        <li>Marine engineering basics</li>
+        <li>Partnerships with maritime schools</li>
+      </ul>
+    </div>
+  </div>
+  <div class="strand-detail">
+  <img src="pictures/smaw.jpeg" alt="SMAW Strand">
+  <div class="strand-info">
+      <h3>SMAW (Shield Manufacturing and Welding)</h3>
+      <p>
+        Focuses on shield manufacturing and welding, providing students with practical skills in metal fabrication and construction.
+      </p>
+      <ul>
+        <li>Shield manufacturing techniques</li>
+        <li>Welding and metal fabrication</li>
+        <li>Construction safety protocols</li>
+        <li>Industrial design and engineering</li>
+      </ul>
+    </div>
+  </div>
+</section>
+  
+<section class="events-section" id="event">
+    <div class="section-header">
+        <h2>Upcoming Events</h2>
+        <p>Stay updated with the latest school activities and important dates.</p>
+    </div>
+    <div class="timeline-container">
+        <button class="timeline-nav-btn" id="timeline-prev" title="Previous Month"><i class="fas fa-chevron-left"></i></button>
+        <div class="timeline-viewport" id="timeline-viewport">
+            <div class="timeline-track" id="timeline-track">
+                <div class="month-card">
+                    <h3>September</h3>
+                    <div class="event-card">
+                        <strong>Intramurals 2025</strong>
+                        <span class="event-date">Sept. 04-05, 2025</span>
+                        <span class="event-desc">Showcasing sportsmanship and teamwork at the BSF Junior High School Court.</span>
+                    </div>
+                    <div class="event-card">
+                        <strong>Entrepreneurship Campaign</strong>
+                        <span class="event-date">TBA</span>
+                        <span class="event-desc">Students implement a small campaign business in school.</span>
+                    </div>
+                </div>
+                <div class="month-card">
+                    <h3>October</h3>
+                    <div class="event-card">
+                        <strong>Teacher's Day</strong>
+                        <span class="event-date">TBA</span>
+                        <span class="event-desc">A special day to honor and celebrate our dedicated educators.</span>
+                    </div>
+                    <div class="event-card">
+                        <strong>Accounting Workshop</strong>
+                        <span class="event-date">TBA</span>
+                        <span class="event-desc">Certified accountants visit for hands-on sessions with ABM students.</span>
+                    </div>
+                </div>
+                <div class="month-card">
+                    <h3>November</h3>
+                    <div class="event-card">
+                        <strong>Debate Tournament</strong>
+                        <span class="event-date">TBA</span>
+                        <span class="event-desc">Regional debate competition hosted by the HUMSS department.</span>
+                    </div>
+                </div>
+                <div class="month-card">
+                    <h3>December</h3>
+                    <div class="event-card">
+                        <strong>Cooking Challenge</strong>
+                        <span class="event-date">TBA</span>
+                        <span class="event-desc">TVL students compete in a live cooking event.</span>
+                    </div>
+                    <div class="event-card">
+                        <strong>Christmas Party</strong>
+                        <span class="event-date">TBA</span>
+                        <span class="event-desc">A school-wide celebration for the holiday season.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="timeline-nav-btn" id="timeline-next" title="Next Month"><i class="fas fa-chevron-right"></i></button>
+    </div>
+</section>
+
+<section class="about-section" id="about">
+    <h2>About MyStrand</h2>
+    <p class="section-subtitle">Discover the core mission and vision that drives our platform.</p>
+    <div class="about-content">
+        <div class="about-text">
+            <h3>Our Mission</h3>
+            <p>To empower every student with the clarity and confidence to choose the right academic path. We provide comprehensive resources, interactive tools, and direct access to school information, making the journey into senior high school seamless and informed.</p>
+            <h3>Our Vision</h3>
+            <p>To be the leading digital platform for educational guidance, creating a future where every student's potential is realized through well-informed decisions, bridging the gap between ambition and achievement.</p>
+        </div>
+        <div class="about-image">
+            <img src="pictures/photo_2025-09-08_22-14-27.png" alt="Students collaborating on a project">
+        </div>
+    </div>
+</section>
+
+<div id="strand-modal" class="modal-overlay">
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+    <h2 id="modal-title">Strand Title</h2>
+    <p class="modal-subtitle">Common Specializations & Career Paths</p>
+    
+    <div id="modal-list-view">
+      </div>
+    
+    <div id="modal-detail-view" style="display: none;">
+      <button id="modal-back-btn">&larr; Back to Specializations</button>
+      <h3 id="detail-title">Specialization Name</h3>
+      <div id="detail-content">
+        </div>
+    </div>
+  </div>
+</div>
+  
+  <script src="Script/user.js"></script>
+  <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

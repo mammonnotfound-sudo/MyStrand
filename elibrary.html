@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyStrand E-Library</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="CSS/elibrary.css">
+    <link rel="icon" href="favicon-32x32.png" type="image/png">
+</head>
+<body>
+
+    <div class="background-effects"></div>
+    
+    <div class="elibrary-container">
+        <a href="user.html" class="back-to-main-btn"><i class="fas fa-arrow-left"></i> Back to Main Site</a>
+        
+        <header class="elibrary-header">
+            <h1>E-Library Hub</h1>
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search for videos, music, and books...">
+            </div>
+            <div class="filter-bar" id="filter-bar">
+                <button class="filter-btn active" data-category="All">All</button>
+                <button class="filter-btn" data-category="Videos">Videos</button>
+                <button class="filter-btn" data-category="Music">Music</button>
+                <button class="filter-btn" data-category="Books">Books</button>
+                <button class="filter-btn" data-category="Manga">Manga</button>
+            </div>
+        </header>
+
+        <main class="elibrary-content">
+            <section class="content-block" id="favorites-section">
+                <h2><i class="fas fa-star"></i> Your Favorites</h2>
+                <div id="favoritesList" class="item-grid"></div>
+            </section>
+            <section class="content-block" id="categories-section"></section>
+        </main>
+
+    </div>
+
+    <!-- BOOK VIEWER MODAL -->
+    <div id="book-viewer-modal" class="viewer-overlay">
+        <div class="viewer-content">
+            <div class="viewer-header">
+                <h3 id="viewer-title">Book Title</h3>
+                <button id="viewer-close-btn" class="viewer-close-btn">&times;</button>
+            </div>
+            <div class="viewer-body">
+                <div class="viewer-sidebar">
+                    <div class="viewer-cover-container">
+                        <img id="viewer-cover-img" src="" alt="Book Cover">
+                    </div>
+                    <div style="flex: 1;">
+                        <p id="viewer-desc" class="viewer-desc-text" style="font-size: 0.9em; color: #ccc; line-height: 1.4;"></p>
+                    </div>
+                    
+                    <button id="toggle-viewer-mode" class="mode-toggle">Mode: PDF.js</button>
+                    <p style="font-size:0.7em; color:#666; margin-top:5px;">If PDF fails, switch mode.</p>
+
+                    <div class="nav-controls">
+                        <button id="prev-book-btn" class="viewer-nav-btn"><i class="fas fa-arrow-left"></i></button>
+                        <button id="next-book-btn" class="viewer-nav-btn"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                <div class="viewer-main-area">
+                    <iframe id="pdf-iframe" src=""></iframe>
+                    <!-- Fallback message -->
+                    <div id="pdf-fallback" style="display:none; position:absolute; inset:0; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:2em; background:#0a1949; z-index:10;">
+                        <i class="fas fa-file-pdf" style="font-size:3em; margin-bottom:0.5em; color:#e50914;"></i>
+                        <p style="color:#fff; margin-bottom:1em;">This content cannot be embedded.</p>
+                        <a id="open-book-link" href="#" target="_blank" class="action-btn" style="display:inline-block; width:auto;">Open in New Tab</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIDEO VIEWER MODAL -->
+    <div id="video-viewer-modal" class="viewer-overlay">
+        <div class="video-viewer-content">
+            <div class="viewer-header">
+                <h3 id="video-viewer-title">Now Playing</h3>
+                <button id="video-viewer-close-btn" class="viewer-close-btn">&times;</button>
+            </div>
+            <div id="video-container"></div>
+        </div>
+    </div>
+
+    <script src="Script/elibrary.js"></script>
+</body>
+</html>

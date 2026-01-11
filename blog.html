@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MyStrand Blog</title>
+  <link rel="stylesheet" href="CSS/blog.css">
+</head>
+<body>
+  <div class="blur-bg"></div>
+  <div class="blog-container">
+    <h1>MyStrand Blog</h1>
+    <div class="back-link">
+  <a href="user.html" class="back-main-btn">← Back to Main Page</a>
+</div>
+
+    <!-- Blog Post Form -->
+    <form id="blogForm" class="blog-form">
+      <input type="text" id="blogTitle" placeholder="Blog Title" required>
+      <textarea id="blogContent" placeholder="What's on your mind?" required></textarea>
+      <button type="submit">Post Blog</button>
+      <div id="blogMsg"></div>
+    </form>
+
+    <!-- Blog List -->
+    <div class="blog-list" id="blogList"></div>
+  </div>
+
+  <script>
+    // Get logged in user
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    const users = JSON.parse(localStorage.getItem('users') || '{}');
+
+    // Blog storage structure: [{title, content, author, date}]
+    function getBlogs() {
+      return JSON.parse(localStorage.getItem('blogs') || '[]');
+    }
+    function saveBlogs(blogs) {
+      localStorage.setItem('blogs', JSON.stringify(blogs));
+    }
+
+    // Render blogs
+    function renderBlogs() {
+      const blogList = document.getElementById('blogList');
+      const blogs = getBlogs().reverse(); // newest first
+      if (blogs.length === 0) {
+        blogList.innerHTML = "<p>No blog posts yet. Be the first to post!</p>";
+        return;
+      }
+      blogList.innerHTML = blogs.map(blog => `
+        <article class="blog-card">
+          <h2>${blog.title}</h2>
+          <p>${blog.content.replace(/\n/g, "<br>")}</p>
+          <span class="blog-date">${blog.date}</span>
+          <span class="blog-author">by ${blog.author}</span>
+        </article>
+      `).join('');
+    }
+
+    // Handle blog form submission
+    document.getElementById('blogForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const msg = document.getElementById('blogMsg');
+
+      if (!loggedInUser || !users[loggedInUser]) {
+        msg.textContent = "You must be logged in to post.";
+        msg.style.color = "red";
+        return;
+      }
+
+      const title = document.getElementById('blogTitle').value.trim();
+      const content = document.getElementById('blogContent').value.trim();
+
+      if (!title || !content) {
+        msg.textContent = "Title and content are required.";
+        msg.style.color = "red";
+        return;
+      }
+
+      const newBlog = {
+        title,
+        content,
+        author: users[loggedInUser].nickname || loggedInUser,
+        date: new Date().toLocaleString()
+      };
+      const blogs = getBlogs();
+      blogs.push(newBlog);
+      saveBlogs(blogs);
+
+      msg.textContent = "Blog posted!";
+      msg.style.color = "green";
+      document.getElementById('blogForm').reset();
+      renderBlogs();
+    });
+
+    renderBlogs();
+  </script>
+</body>
+</html>

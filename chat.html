@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox - MyStrand</title>
+    <link rel="stylesheet" href="CSS/user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="favicon-32x32.png" type="image/png">
+</head>
+<body>
+    
+<header class="top-header">
+    <div class="header-left">
+        <img src="pictures/photo_2025-09-08_22-14-27.png" alt="School Logo" class="header-logo">
+        <div class="header-titles">
+            <span class="header-main-title">MyStrand</span>
+            <span id="navbarUser"></span>
+        </div>
+    </div>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation menu">
+        <i class="fas fa-bars"></i>
+    </button>
+</header>
+
+<nav id="sidebar-nav">
+    <div class="sidebar-header">
+        <span class="nav-title">Menu</span>
+        <button class="close-btn" id="close-btn" aria-label="Close navigation menu">&times;</button>
+    </div>
+    <div class="nav-links">
+        <a href="user.html#intro">Home</a>
+        <a href="user.html#strand">Strands</a>
+        <a href="user.html#info">Information</a>
+        <a href="user.html#event">Events</a>
+        <a href="user.html#about">About</a>
+        <a href="#">Chat</a> <a href="profile.html">Profile</a>
+        <a href="main.html" id="logoutLink">Log Out</a>
+    </div>
+</nav>
+
+<main class="inbox-page-container">
+    <div class="inbox-wrapper">
+        <aside class="conversations-list" id="conversations-list">
+            <div class="conv-header">
+                <h3>Conversations</h3>
+                <button id="new-message-btn" title="New Message"><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="conv-search">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-conversations" placeholder="Search contacts...">
+            </div>
+            <div class="conv-items" id="conv-items">
+                </div>
+        </aside>
+
+        <section class="chat-window">
+            <div class="chat-header" id="chat-header">
+                <h3 id="chat-with-name">Select a conversation</h3>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="no-conversation-selected">
+                    <i class="fas fa-comments"></i>
+                    <p>Your messages will appear here.</p>
+                </div>
+            </div>
+            <div class="chat-input-area" id="chat-input-area" style="display: none;">
+                <input type="text" id="message-input" placeholder="Type a message...">
+                <button id="send-message-btn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </section>
+    </div>
+</main>
+
+<div id="user-search-modal" class="search-modal-overlay">
+    <div class="search-modal-content">
+        <button class="search-modal-close" id="close-search-modal">&times;</button>
+        <h2>Start a New Conversation</h2>
+        <p>Search for any user to begin a chat.</p>
+        <div class="modal-search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" id="modal-search-input" placeholder="Type a name to search...">
+        </div>
+        <div class="modal-user-list" id="modal-user-list">
+        </div>
+    </div>
+</div>
+
+<script src="Script/database.js"></script>
+<script src="Script/chat.js"></script>
+<script src="Script/shared-nav.js"></script>
+</body>
+</html>

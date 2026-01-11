@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - MyStrand</title>
+    <link rel="stylesheet" href="CSS/user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="favicon-32x32.png" type="image/png">
+</head>
+<body>
+
+<header class="top-header">
+    <div class="header-left">
+        <img src="pictures/photo_2025-09-08_22-14-27.png" alt="School Logo" class="header-logo">
+        <div class="header-titles">
+            <span class="header-main-title">MyStrand</span>
+            <span id="navbarUser"></span>
+        </div>
+    </div>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation menu">
+        <i class="fas fa-bars"></i>
+    </button>
+</header>
+
+<nav id="sidebar-nav">
+    <div class="sidebar-header">
+        <span class="nav-title">Menu</span>
+        <button class="close-btn" id="close-btn" aria-label="Close navigation menu">&times;</button>
+    </div>
+    <div class="nav-links">
+        <a href="user.html">Home</a>
+        <a href="user.html#strand">Strands</a>
+        <a href="user.html#info">Information</a>
+        <a href="user.html#event">Events</a>
+        <a href="user.html#about">About</a>
+        <a href="chat.html">Chat</a>
+        <a href="#">Profile</a> <a href="main.html" id="logoutLink">Log Out</a>
+    </div>
+</nav>
+
+<main class="profile-page-container">
+    <div class="profile-card" id="profile-card">
+        <aside class="profile-sidebar">
+            <div class="profile-picture-wrapper">
+                <img src="pictures/default-avatar.png" alt="User Avatar" id="profile-avatar">
+                <label for="avatar-upload" class="avatar-upload-label">
+                    <i class="fas fa-camera"></i> 
+                </label>
+                <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+            </div>
+            <h2 id="profile-username">Username</h2>
+            <p id="profile-enroll-status">Not Enrolled</p>
+            <div class="profile-buttons">
+                <button class="profile-btn" id="edit-profile-btn"><i class="fas fa-pencil-alt"></i> Edit Profile</button>
+                <button class="profile-btn save-btn" id="save-changes-btn" style="display: none;"><i class="fas fa-save"></i> Save Changes</button>
+                <button class="profile-btn cancel-btn" id="cancel-changes-btn" style="display: none;"><i class="fas fa-times"></i> Cancel</button>
+            </div>
+        </aside>
+
+        <section class="profile-details">
+    <h3>Personal Information</h3>
+    <div class="info-grid">
+        <div class="info-item">
+            <label>Username</label>
+            <p id="view-username">N/A</p>
+        </div>
+        <div class="info-item">
+            <label>Email Address</label>
+            <p class="view-mode-field" id="view-email">N/A</p>
+            <input type="email" class="edit-mode-field" id="edit-email" placeholder="Enter your email">
+        </div>
+        <div class="info-item">
+            <label>Contact Number</label>
+            <p class="view-mode-field" id="view-contact">N/A</p>
+            <input type="tel" class="edit-mode-field" id="edit-contact" placeholder="Enter your contact number">
+        </div>
+        <div class="info-item">
+            <label>Age</label>
+            <p class="view-mode-field" id="view-age">N/A</p>
+            <input type="number" class="edit-mode-field" id="edit-age" placeholder="Enter your age">
+        </div>
+        <div class="info-item">
+            <label>Gender</label>
+            <p class="view-mode-field" id="view-gender">N/A</p>
+             <select class="edit-mode-field" id="edit-gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+    </div>
+    <h3>Academic Details</h3>
+     <div class="info-grid">
+        <div class="info-item">
+            <label>Last School Attended</label>
+            <p class="view-mode-field" id="view-school">N/A</p>
+            <input type="text" class="edit-mode-field" id="edit-school" placeholder="Enter school name">
+        </div>
+        <div class="info-item">
+            <label>Grade & Section</label>
+            <p class="view-mode-field" id="view-gradeSection">N/A</p>
+            <input type="text" class="edit-mode-field" id="edit-gradeSection" placeholder="e.g., Grade 10 - A">
+        </div>
+        <div class="info-item">
+            <label>LRN</label>
+            <p class="view-mode-field" id="view-lrn">N/A</p>
+            <input type="text" class="edit-mode-field" id="edit-lrn" placeholder="Enter your LRN">
+        </div>
+    </div>
+</section>
+    </div>
+</main>
+
+<script src="Script/profile.js"></script>
+<script src="Script/shared-nav.js"></script> 
+</body>
+</html>

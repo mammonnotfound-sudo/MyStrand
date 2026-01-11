@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up | MyStrand</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="CSS/auth.css">
+    <link rel="icon" href="favicon-32x32.png" type="image/png">
+</head>
+<body>
+    <div class="auth-container">
+        <header class="auth-header">
+            <h1>Create Your MyStrand Account</h1>
+            <p>Join our community to get started.</p>
+        </header>
+
+        <form id="signup-form" autocomplete="off">
+            <div id="error-message" class="error-message"></div>
+            
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="username" placeholder="Username" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-birthday-cake"></i>
+                <input type="number" id="age" placeholder="Age" min="15" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" placeholder="Email Address" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-phone"></i>
+                <input type="tel" id="contact" placeholder="Contact Number" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-school"></i>
+                <input type="text" id="school" placeholder="School" required>
+            </div>
+            <div class="input-group">
+                <input type="text" id="grade-section" placeholder="Grade & Section (Optional)">
+            </div>
+            <div class="input-group">
+                <input type="text" id="lrn" placeholder="LRN No. (Optional)">
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-venus-mars"></i> Gender</label>
+                <div class="gender-options">
+                    <label><input type="radio" name="gender" value="male" required> Male</label>
+                    <label><input type="radio" name="gender" value="female" required> Female</label>
+                    <label><input type="radio" name="gender" value="other" required> Other</label>
+                </div>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-check-circle"></i>
+                <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+            </div>
+            <div class="form-group terms">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">I agree to the <a href="#">Terms & Conditions</a></label>
+            </div>
+            <button type="submit" class="auth-btn">Create Account</button>
+        </form>
+
+        <footer class="auth-footer">
+            <p>Already have an account? <a href="login.html">Log In</a></p>
+        </footer>
+    </div>
+    <script src="Script/auth.js"></script>
+</body>
+</html>
